@@ -1,0 +1,80 @@
+{
+  "name": "Balaji Plumbing Services",
+  "short_name": "Balaji Plumbing",
+  "description": "Premium plumbing & home services in Proddatur, Andhra Pradesh. 24/7 service, certified technicians, transparent pricing.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0066FF",
+  "background_color": "#FFFFFF",
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><rect fill='%230066FF' width='540' height='720'/><text x='270' y='360' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>BP</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230066FF' width='192' height='192' rx='45'/><text x='96' y='120' font-size='100' fill='white' text-anchor='middle' font-weight='bold'>BP</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect fill='%230066FF' width='512' height='512' rx='110'/><text x='256' y='340' font-size='280' fill='white' text-anchor='middle' font-weight='bold'>BP</text></svg>",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["business", "productivity"],
+  "screenshots": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 540 720'><defs><linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'><stop offset='0%' style='stop-color:%230066FF;stop-opacity:1' /><stop offset='100%' style='stop-color:%230052CC;stop-opacity:1' /></linearGradient></defs><rect fill='url(%23grad)' width='540' height='720'/><text x='270' y='250' font-size='60' fill='white' text-anchor='middle' font-weight='bold'>Balaji Plumbing</text><text x='270' y='350' font-size='40' fill='white' text-anchor='middle'>Premium Service</text><text x='270' y='420' font-size='35' fill='rgba(255,255,255,0.8)' text-anchor='middle'>24/7 Available</text></svg>",
+      "sizes": "540x720",
+      "type": "image/svg+xml",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Book Appointment",
+      "short_name": "Book",
+      "description": "Quick booking for plumbing services",
+      "url": "/?shortcut=booking",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%230066FF' width='96' height='96' rx='20'/><text x='48' y='60' font-size='50' text-anchor='middle'>📅</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Emergency Call",
+      "short_name": "Call",
+      "description": "Call emergency plumbing service",
+      "url": "/?shortcut=emergency",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%23FF6B6B' width='96' height='96' rx='20'/><text x='48' y='60' font-size='50' text-anchor='middle'>🚨</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "WhatsApp Chat",
+      "short_name": "Chat",
+      "description": "Chat via WhatsApp",
+      "url": "/?shortcut=whatsapp",
+      "icons": [
+        {
+          "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 96 96'><rect fill='%2325D366' width='96' height='96' rx='20'/><text x='48' y='60' font-size='50' text-anchor='middle'>💬</text></svg>",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ]
+}
