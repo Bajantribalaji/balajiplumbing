@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Balaji Plumbing Services - Premium plumbing & home services in Proddatur, Andhra Pradesh. 24/7 emergency repairs, professional staff, 10% discount today!">
+    <meta name="keywords" content="plumber near me, plumbing services Proddatur, home services, emergency repair, Andhra Pradesh">
+    <meta name="theme-color" content="#0066FF">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Balaji Plumbing">
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect fill='%230066FF' width='192' height='192'/><text x='50%' y='50%' font-size='100' fill='white' text-anchor='middle' dominant-baseline='middle' font-weight='bold'>BP</text></svg>">
+    <title>Balaji Plumbing Services - Premium Plumbing in Proddatur</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Loading Animation -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader">
+            <div class="loader-inner"></div>
+        </div>
+        <p>Balaji Plumbing Services</p>
+    </div>
+
+    <!-- Offer Popup -->
+    <div class="offer-popup" id="offerPopup">
+        <div class="offer-content">
+            <button class="close-offer" onclick="closeOfferPopup()">×</button>
+            <div class="offer-badge">🎉 LIMITED TIME</div>
+            <h2>Get <span class="discount-text">10% Discount</span> Today!</h2>
+            <p>New customers only • Valid till end of month</p>
+            <div class="offer-code">Use Code: <strong>BALAJI10</strong></div>
+            <button class="btn btn-primary" onclick="scrollToBooking()">Book Now</button>
+            <p class="offer-terms">T&C Apply</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#0066FF"/>
+                    <text x="16" y="20" text-anchor="middle" fill="white" font-weight="bold" font-size="14">BP</text>
+                </svg>
+                <span>Balaji Plumbing</span>
+            </div>
+            <div class="nav-toggle" onclick="toggleMobileMenu()" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><button class="btn-small" onclick="toggleDarkMode()">🌙</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="badge-hero">⚡ Available 24/7 • Emergency Service</div>
+            <h1 class="hero-title">Premium Plumbing & Home Services</h1>
+            <p class="hero-subtitle">Professional repairs, trusted by 1000+ customers in Proddatur. Fast response • Transparent pricing • Certified technicians</p>
+            <div class="hero-cta">
+                <button class="btn btn-primary" onclick="scrollToBooking()">Book Appointment</button>
+                <button class="btn btn-secondary" onclick="openWhatsApp()">WhatsApp Now</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>1000+</h3>
+                    <p>Happy Customers</p>
+                </div>
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Projects Done</p>
+                </div>
+                <div class="stat">
+                    <h3>15+</h3>
+                    <p>Expert Staff</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-card">
+                <div class="card-icon">🔧</div>
+                <div class="card-text">Expert Repairs</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Festival Offers Banner -->
+    <section class="festival-banner">
+        <div class="festival-content">
+            <span class="festival-emoji">🎊</span>
+            <h3>Festival Special Offers</h3>
+            <p>Up to 25% discount on all services • Flexible payment options • Free consultation</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <h2>Our Services</h2>
+            <p>Comprehensive plumbing & home solutions for every need</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🚰</div>
+                <h3>Leak Repairs</h3>
+                <p>Quick detection and professional fixing of water leaks from pipes to fixtures</p>
+                <ul class="service-list">
+                    <li>Pipe leak detection</li>
+                    <li>Faucet repair</li>
+                    <li>Emergency sealing</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚽</div>
+                <h3>Drainage Solutions</h3>
+                <p>Unclog drains, toilet repairs, and maintenance for smooth water flow</p>
+                <ul class="service-list">
+                    <li>Drain cleaning</li>
+                    <li>Toilet repairs</li>
+                    <li>Blockage removal</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🛁</div>
+                <h3>Installation & Maintenance</h3>
+                <p>Professional installation of new fixtures and regular maintenance services</p>
+                <ul class="service-list">
+                    <li>Fixture installation</li>
+                    <li>Water tank service</li>
+                    <li>Regular checkups</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🚨</div>
+                <h3>Emergency Services</h3>
+                <p>24/7 emergency response for urgent plumbing issues with expert handling</p>
+                <ul class="service-list">
+                    <li>Emergency response</li>
+                    <li>Burst pipe repair</li>
+                    <li>Flooding control</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🔧</div>
+                <h3>Water Heating</h3>
+                <p>Installation and repair of water heaters, geysers, and related systems</p>
+                <ul class="service-list">
+                    <li>Geyser repair</li>
+                    <li>Heater installation</li>
+                    <li>Maintenance plans</li>
+                </ul>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🏠</div>
+                <h3>Home Maintenance</h3>
+                <p>Complete home care including painting, carpentry, and electrical work</p>
+                <ul class="service-list">
+                    <li>Painting services</li>
+                    <li>Carpentry work</li>
+                    <li>General repairs</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <h2>Transparent Pricing</h2>
+            <p>No hidden charges • Competitive rates • EMI options available</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <div class="price-header">
+                    <h3>Basic Service</h3>
+                    <p>Per Visit</p>
+                </div>
+                <div class="price-tag">₹500<span>/visit</span></div>
+                <ul class="price-features">
+                    <li>✓ Service charge</li>
+                    <li>✓ Diagnosis</li>
+                    <li>✓ Small repairs</li>
+                </ul>
+                <button class="btn btn-outline" onclick="scrollToBooking()">Book Now</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="price-badge">Most Popular</div>
+                <div class="price-header">
+                    <h3>Premium Package</h3>
+                    <p>Per Month</p>
+                </div>
+                <div class="price-tag">₹1,999<span>/month</span></div>
+                <ul class="price-features">
+                    <li>✓ 2 free visits</li>
+                    <li>✓ 24/7 priority support</li>
+                    <li>✓ 15% discount on parts</li>
+                    <li>✓ Emergency response</li>
+                </ul>
+                <button class="btn btn-primary" onclick="scrollToBooking()">Get Premium</button>
+            </div>
+            <div class="pricing-card">
+                <div class="price-header">
+                    <h3>Annual Contract</h3>
+                    <p>Per Year</p>
+                </div>
+                <div class="price-tag">₹19,999<span>/year</span></div>
+                <ul class="price-features">
+                    <li>✓ Unlimited visits</li>
+                    <li>✓ 25% discount on parts</li>
+                    <li>✓ Free maintenance</li>
+                    <li>✓ VIP support</li>
+                </ul>
+                <button class="btn btn-outline" onclick="scrollToBooking()">Subscribe</button>
+            </div>
+        </div>
+        <div class="emi-section">
+            <h3>💳 EMI Options Available</h3>
+            <p>No-cost EMI for bills above ₹5,000 • Flexible payment terms</p>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="booking" id="booking">
+        <div class="section-header">
+            <h2>Book Your Appointment</h2>
+            <p>Quick, easy, and instant confirmation</p>
+        </div>
+        <div class="booking-container">
+            <form class="booking-form" id="bookingForm" onsubmit="submitBooking(event)">
+                <div class="form-group">
+                    <label>Your Name</label>
+                    <input type="text" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" placeholder="Enter 10-digit number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label>Select Service</label>
+                    <select required>
+                        <option value="">Choose a service</option>
+                        <option value="leak">Leak Repairs</option>
+                        <option value="drainage">Drainage Solutions</option>
+                        <option value="installation">Installation & Maintenance</option>
+                        <option value="emergency">Emergency Services</option>
+                        <option value="heating">Water Heating</option>
+                        <option value="maintenance">Home Maintenance</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Date</label>
+                    <input type="date" required>
+                </div>
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <input type="time" required>
+                </div>
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea placeholder="Enter your service address" required></textarea>
+                </div>
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="whatsapp" checked>
+                    <label for="whatsapp">Send confirmation via WhatsApp</label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Confirm Booking</button>
+            </form>
+            <div class="booking-benefits">
+                <div class="benefit-item">
+                    <div class="benefit-icon">⚡</div>
+                    <div>
+                        <h4>Quick Response</h4>
+                        <p>Within 30 minutes</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✓</div>
+                    <div>
+                        <h4>Instant Confirmation</h4>
+                        <p>Via SMS & WhatsApp</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">🎯</div>
+                    <div>
+                        <h4>Guaranteed Service</h4>
+                        <p>Professional & on-time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer History Demo -->
+    <section class="customer-history">
+        <div class="section-header">
+            <h2>Repeat Customer Benefits</h2>
+            <p>Personalized service for our loyal customers</p>
+        </div>
+        <div class="history-demo">
+            <div class="history-card">
+                <div class="history-avatar">👤</div>
+                <div class="history-content">
+                    <h3>Ramesh Kumar</h3>
+                    <p class="history-service">Last Service: Leak Repair - 15 Jan 2026</p>
+                    <p class="history-note">Quote: ₹2,500 | Status: Completed</p>
+                    <button class="btn btn-small btn-outline" onclick="viewQuotation()">View Invoice</button>
+                </div>
+            </div>
+            <div class="history-card">
+                <div class="history-avatar">👤</div>
+                <div class="history-content">
+                    <h3>Priya Sharma</h3>
+                    <p class="history-service">Last Service: Drain Cleaning - 10 Jan 2026</p>
+                    <p class="history-note">Quote: ₹1,500 | Status: Completed</p>
+                    <button class="btn btn-small btn-outline" onclick="viewQuotation()">View Invoice</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quotation & Invoice Demo -->
+    <section class="quotation-section">
+        <div class="section-header">
+            <h2>Digital Quotation & Invoice</h2>
+            <p>Transparent billing with easy download options</p>
+        </div>
+        <div class="quote-demo">
+            <div class="quote-card">
+                <div class="quote-header">
+                    <h3>Invoice #BP-2026-0155</h3>
+                    <span class="quote-date">Date: 15-01-2026</span>
+                </div>
+                <div class="quote-details">
+                    <div class="quote-row">
+                        <span>Leak Detection & Repair</span>
+                        <span>₹2,500</span>
+                    </div>
+                    <div class="quote-row">
+                        <span>Material (Pipes, Fittings)</span>
+                        <span>₹1,200</span>
+                    </div>
+                    <div class="quote-row">
+                        <span>Labor</span>
+                        <span>₹800</span>
+                    </div>
+                    <div class="quote-row discount">
+                        <span>Discount (BALAJI10)</span>
+                        <span>-₹520</span>
+                    </div>
+                </div>
+                <div class="quote-total">
+                    <span>Total Amount:</span>
+                    <span>₹3,980</span>
+                </div>
+                <div class="quote-actions">
+                    <button class="btn btn-small btn-outline" onclick="downloadPDF()">📥 Download PDF</button>
+                    <button class="btn btn-small btn-outline" onclick="shareInvoice()">📤 Share</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="reviews" id="reviews">
+        <div class="section-header">
+            <h2>Customer Reviews</h2>
+            <p>Trusted by 1000+ happy customers</p>
+        </div>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Excellent service! Very professional and on-time. Highly recommended for any plumbing needs."</p>
+                <div class="review-author">
+                    <div class="review-avatar">👤</div>
+                    <div>
+                        <h4>Rajesh Gupta</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Great customer service! They responded within 30 mins and fixed the issue perfectly."</p>
+                <div class="review-author">
+                    <div class="review-avatar">👤</div>
+                    <div>
+                        <h4>Sunita Rao</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Best plumbing service in Proddatur! Transparent pricing, no hidden charges. Will use again!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">👤</div>
+                    <div>
+                        <h4>Vikram Singh</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="review-card">
+                <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                <p>"Professional staff, quality work. Emergency service was quick and efficient. 5 stars!"</p>
+                <div class="review-author">
+                    <div class="review-avatar">👤</div>
+                    <div>
+                        <h4>Anjali Desai</h4>
+                        <span>Verified Customer</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+        <div class="section-header">
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers to common questions</p>
+        </div>
+        <div class="faq-container">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What is your response time for emergency calls?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We guarantee response within 30 minutes for emergency calls. Our 24/7 team is always ready to help with urgent plumbing issues.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you provide warranty on repairs?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We provide 6 months warranty on all plumbing repairs. If the same issue occurs, we'll fix it free of charge within the warranty period.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>How do I get the 10% discount?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Use coupon code BALAJI10 when booking your appointment. Valid for new customers and applicable on all services. Limited time offer.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Do you offer payment in installments?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We offer no-cost EMI for bills above ₹5,000. You can choose from 3, 6, or 12-month payment plans with zero interest.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>Are your technicians certified?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>All our technicians are certified professionals with 5+ years of experience. We maintain strict quality standards and regular training programs.</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <h3>What areas do you serve?</h3>
+                    <span class="faq-toggle">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We primarily serve Proddatur and surrounding areas in Andhra Pradesh. For locations outside our coverage, please contact us to check availability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-content">
+                <h2>About Balaji Plumbing Services</h2>
+                <p>Founded in 2015, Balaji Plumbing Services has grown to become the most trusted plumbing company in Proddatur. We pride ourselves on delivering excellence, integrity, and professionalism in every project.</p>
+                <div class="about-features">
+                    <div class="feature">
+                        <h4>🎯 Our Mission</h4>
+                        <p>Provide world-class plumbing solutions with transparency and customer satisfaction</p>
+                    </div>
+                    <div class="feature">
+                        <h4>⭐ Our Vision</h4>
+                        <p>Become the most recommended home services provider in Andhra Pradesh</p>
+                    </div>
+                    <div class="feature">
+                        <h4>💼 Our Values</h4>
+                        <p>Integrity, Quality, Customer-first approach, Innovation, and Excellence</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-team">
+                <h3>Meet Our Team</h3>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍💼</div>
+                        <h4>Balaji Reddy</h4>
+                        <p>Founder & CEO</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍🔧</div>
+                        <h4>Ravi Kumar</h4>
+                        <p>Service Manager</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-avatar">👨‍💼</div>
+                        <h4>Prakash Singh</h4>
+                        <p>Operations Head</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Referral & Coupon Section -->
+    <section class="referral">
+        <div class="referral-content">
+            <h2>Refer & Earn Rewards</h2>
+            <p>Share with friends and get ₹500 cashback on each successful referral</p>
+            <div class="referral-actions">
+                <button class="btn btn-primary" onclick="shareReferral()">Share Referral Link</button>
+                <button class="btn btn-secondary" onclick="viewCoupons()">View Active Coupons</button>
+            </div>
+            <div class="coupon-display">
+                <div class="coupon">BALAJI10</div>
+                <p>10% Discount</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="section-header">
+            <h2>Get In Touch</h2>
+            <p>We're just a call away</p>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919392545262">+91 93925 45262</a></p>
+                    <p class="contact-desc">Available 24/7</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💬</div>
+                    <h3>WhatsApp</h3>
+                    <p><a href="https://wa.me/919392545262" target="_blank">+91 93925 45262</a></p>
+                    <p class="contact-desc">Quick response</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <h3>Email</h3>
+                    <p><a href="mailto:Bajantribalaji939@gmail.com">Bajantribalaji939@gmail.com</a></p>
+                    <p class="contact-desc">We reply within 1 hour</p>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <h3>Location</h3>
+                    <p>Proddatur, Andhra Pradesh</p>
+                    <p class="contact-desc">Service area</p>
+                </div>
+            </div>
+            <div class="contact-form">
+                <form onsubmit="submitContact(event)">
+                    <input type="text" placeholder="Your Name" required>
+                    <input type="email" placeholder="Your Email" required>
+                    <input type="tel" placeholder="Phone Number" required>
+                    <textarea placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Chatbot Widget -->
+    <div class="chatbot-widget" id="chatbotWidget">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <span>💬 Chat with us</span>
+            <span class="chatbot-toggle">_</span>
+        </div>
+        <div class="chatbot-body">
+            <div class="chat-messages" id="chatMessages">
+                <div class="chat-message bot">
+                    <p>Hello! 👋 I'm Balaji Assistant. How can I help you today?</p>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" placeholder="Type your question..." id="chatInput" onkeypress="handleChatInput(event)">
+                <button onclick="sendChatMessage()">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Contact Buttons -->
+    <div class="sticky-buttons">
+        <button class="sticky-btn phone-btn" onclick="makeCall()" title="Call Now">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.92 7.02C17.45 6.18 16.64 5.59 15.72 5.59c-2.64 0-4.84 3.06-4.84 6.76 0 3.7 2.2 6.76 4.84 6.76 1.02 0 2.05-.24 2.89-.67.25-.13.53-.04.64.25l1.07 2.41c.12.28.04.6-.23.74-1.88.95-4.05 1.54-6.37 1.54-5.04 0-9.36-3.57-9.36-8.99 0-5.42 4.32-8.99 9.36-8.99 1.13 0 2.26.19 3.44.52.27.08.48.35.35.64L17.92 7.02zM14.6 12.84c.65-1.21 1.16-2.78 1.38-4.52h-6.86c.23 1.69.72 3.21 1.38 4.52.37.68.79 1.31 1.25 1.85.46-.54.88-1.17 1.25-1.85z"/>
+            </svg>
+        </button>
+        <button class="sticky-btn whatsapp-btn" onclick="openWhatsApp()" title="WhatsApp">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-5.031 1.378c-1.536.925-2.757 2.236-3.514 3.65-.757 1.413-1.168 3.002-1.168 4.695 0 .584.037 1.17.111 1.748l-1.185 4.32a.5.5 0 00.609.609l4.32-1.185c.578.074 1.165.111 1.748.111h.004c2.442 0 4.73-.8 6.662-2.282 1.933-1.483 3.348-3.475 4.157-5.677.808-2.203 1.248-4.541 1.248-6.945 0-2.554-.523-4.98-1.566-7.204C19.114 3.789 17.664 1.982 15.84.847 14.017-.289 11.846-.876 9.609-.876c-2.237 0-4.408.587-6.231 1.723-1.823 1.136-3.273 2.943-4.316 5.167-1.043 2.224-1.566 4.65-1.566 7.204 0 2.404.44 4.742 1.248 6.945.808 2.202 2.224 4.194 4.157 5.677C4.88 22.2 7.168 23 9.51 23c2.237 0 4.408-.587 6.231-1.723 1.823-1.136 3.273-2.943 4.316-5.167 1.043-2.224 1.566-4.65 1.566-7.204 0-2.554-.523-4.98-1.566-7.204-1.043-2.223-2.493-4.03-4.316-5.167-1.823-1.136-3.994-1.723-6.231-1.723"/>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Balaji Plumbing</h4>
+                <p>Premium plumbing & home services trusted by 1000+ customers in Proddatur.</p>
+                <div class="social-links">
+                    <a href="#" title="Facebook">f</a>
+                    <a href="#" title="Instagram">📷</a>
+                    <a href="#" title="Google">G</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms & Conditions</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact Info</h4>
+                <p>📞 +91 9392545262</p>
+                <p>💬 WhatsApp us anytime</p>
+                <p>📧 Bajantribalaji939@gmail.com</p>
+                <p>📍 Proddatur, AP, India</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Balaji Plumbing Services. All rights reserved. | Proudly serving Proddatur</p>
+            <div class="trust-badges">
+                <span>✓ Verified Business</span>
+                <span>✓ Licensed & Certified</span>
+                <span>✓ 24/7 Support</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admin Dashboard Link (Demo) -->
+    <div class="admin-access">
+        <a href="admin-dashboard.html" class="admin-link">Admin Panel (Demo)</a>
+    </div>
+
+    <!-- Staff Login Link (Demo) -->
+    <div class="staff-access">
+        <a href="staff-login.html" class="staff-link">Staff Login (Demo)</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
