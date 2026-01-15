@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Staff Dashboard - Balaji Plumbing</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0F1419;
+            color: #E9ECEF;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            background: #1A1F2E;
+            border-right: 1px solid rgba(0, 102, 255, 0.1);
+            padding: 20px;
+            position: fixed;
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+        }
+
+        .logo-staff {
+            font-size: 20px;
+            font-weight: 700;
+            color: #0066FF;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .staff-profile {
+            background: #24293A;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            text-align: center;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .staff-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #0066FF, #0052CC);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin: 0 auto 10px;
+        }
+
+        .staff-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .staff-role {
+            font-size: 12px;
+            color: #0066FF;
+            font-weight: 600;
+        }
+
+        .sidebar-nav {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .sidebar-item {
+            padding: 12px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            color: #A0ABB8;
+            text-decoration: none;
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .sidebar-item:hover,
+        .sidebar-item.active {
+            background: #24293A;
+            color: #0066FF;
+        }
+
+        .main-content {
+            margin-left: 250px;
+            padding: 30px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .header h1 {
+            font-size: 32px;
+        }
+
+        .card {
+            background: #24293A;
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: #0066FF;
+            box-shadow: 0 8px 32px rgba(0, 102, 255, 0.15);
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #24293A, #1A1F2E);
+            padding: 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .stat-title {
+            color: #A0ABB8;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: #0066FF;
+        }
+
+        .jobs-list {
+            background: #24293A;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .jobs-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.1);
+        }
+
+        .jobs-header h2 {
+            font-size: 20px;
+        }
+
+        .job-item {
+            padding: 20px;
+            border-bottom: 1px solid rgba(0, 102, 255, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .job-item:hover {
+            background: rgba(0, 102, 255, 0.05);
+        }
+
+        .job-item:last-child {
+            border-bottom: none;
+        }
+
+        .job-info {
+            flex: 1;
+        }
+
+        .job-id {
+            font-weight: 600;
+            color: #0066FF;
+            margin-bottom: 4px;
+        }
+
+        .job-service {
+            color: #E9ECEF;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .job-customer {
+            color: #A0ABB8;
+            font-size: 14px;
+        }
+
+        .job-time {
+            background: #0066FF;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            margin-right: 12px;
+        }
+
+        .job-action {
+            background: transparent;
+            border: 2px solid #0066FF;
+            color: #0066FF;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .job-action:hover {
+            background: #0066FF;
+            color: white;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: #0066FF;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #0052CC;
+        }
+
+        .btn-logout {
+            background: #FF6B6B;
+            color: white;
+        }
+
+        .btn-logout:hover {
+            background: #FF5252;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                transition: left 0.3s ease;
+                z-index: 1000;
+                height: 100vh;
+            }
+
+            .sidebar.open {
+                left: 0;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="logo-staff">👔 Staff Portal</div>
+
+            <div class="staff-profile">
+                <div class="staff-avatar">👨‍🔧</div>
+                <div class="staff-name">Ravi Kumar</div>
+                <div class="staff-role">Senior Plumber</div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="sidebar-item active" onclick="showSection('today')">
+                    <span>📅</span> Today's Jobs
+                </a>
+                <a href="#" class="sidebar-item" onclick="showSection('upcoming')">
+                    <span>📋</span> Upcoming
+                </a>
+                <a href="#" class="sidebar-item" onclick="showSection('completed')">
+                    <span>✓</span> Completed
+                </a>
+                <a href="#" class="sidebar-item" onclick="showSection('earnings')">
+                    <span>💰</span> Earnings
+                </a>
+                <a href="#" class="sidebar-item" onclick="showSection('profile')">
+                    <span>⚙️</span> Profile
+                </a>
+                <a href="index.html" class="sidebar-item" style="color: #FF6B6B; margin-top: 20px;">
+                    <span>↩️</span> Logout
+                </a>
+            </nav>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h1>Dashboard</h1>
+                <div style="color: #A0ABB8; font-size: 14px;">
+                    Last updated: <span id="currentTime">Now</span>
+                </div>
+            </div>
+
+            <!-- Today's Jobs Section -->
+            <div id="today-section" class="section">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Today's Jobs</div>
+                        <div class="stat-value">3</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Completed</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">In Progress</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Pending</div>
+                        <div class="stat-value">1</div>
+                    </div>
+                </div>
+
+                <div class="jobs-list">
+                    <div class="jobs-header">
+                        <h2>Today's Assignments</h2>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0155</div>
+                            <div class="job-service">Leak Repair & Replacement</div>
+                            <div class="job-customer">Ramesh Kumar • HSR Layout</div>
+                        </div>
+                        <div class="job-time">10:00 AM</div>
+                        <button class="job-action" onclick="acceptJob()">Accept</button>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0154</div>
+                            <div class="job-service">Drain Cleaning Service</div>
+                            <div class="job-customer">Priya Sharma • Whitefield</div>
+                        </div>
+                        <div class="job-time">2:00 PM</div>
+                        <button class="job-action" onclick="acceptJob()">Accept</button>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0153</div>
+                            <div class="job-service">Geyser Installation</div>
+                            <div class="job-customer">Vikram Singh • Indiranagar</div>
+                        </div>
+                        <div class="job-time">4:30 PM</div>
+                        <button class="job-action" onclick="acceptJob()">Accept</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Section -->
+            <div id="upcoming-section" class="section" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Upcoming Jobs</div>
+                        <div class="stat-value">7</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">This Week</div>
+                        <div class="stat-value">5</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Next Week</div>
+                        <div class="stat-value">2</div>
+                    </div>
+                </div>
+
+                <div class="jobs-list">
+                    <div class="jobs-header">
+                        <h2>Upcoming Assignments</h2>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0156</div>
+                            <div class="job-service">Maintenance Checkup</div>
+                            <div class="job-customer">Anjali Desai • Koramangala</div>
+                        </div>
+                        <div class="job-time">Tomorrow 9:00 AM</div>
+                        <button class="job-action">Details</button>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0157</div>
+                            <div class="job-service">Emergency Response</div>
+                            <div class="job-customer">Suresh Kumar • Marathahalli</div>
+                        </div>
+                        <div class="job-time">Jan 16, 11:00 AM</div>
+                        <button class="job-action">Details</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Completed Section -->
+            <div id="completed-section" class="section" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">Total Completed</div>
+                        <div class="stat-value">156</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">This Month</div>
+                        <div class="stat-value">18</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Rating</div>
+                        <div class="stat-value">4.9 ⭐</div>
+                    </div>
+                </div>
+
+                <div class="jobs-list">
+                    <div class="jobs-header">
+                        <h2>Recent Completed Jobs</h2>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0155</div>
+                            <div class="job-service">Leak Repair & Replacement</div>
+                            <div class="job-customer">Ramesh Kumar • HSR Layout</div>
+                        </div>
+                        <div class="job-time">Today 12:30 PM</div>
+                        <button class="job-action">Invoice</button>
+                    </div>
+                    <div class="job-item">
+                        <div class="job-info">
+                            <div class="job-id">#BP-2026-0150</div>
+                            <div class="job-service">Drain Cleaning</div>
+                            <div class="job-customer">Priya Sharma • Whitefield</div>
+                        </div>
+                        <div class="job-time">Jan 14, 3:45 PM</div>
+                        <button class="job-action">Invoice</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings Section -->
+            <div id="earnings-section" class="section" style="display: none;">
+                <div class="dashboard-grid">
+                    <div class="stat-card">
+                        <div class="stat-title">This Month Earnings</div>
+                        <div class="stat-value">₹18,500</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">This Year Earnings</div>
+                        <div class="stat-value">₹2.1L</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Pending Payment</div>
+                        <div class="stat-value">₹2,800</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-title">Bonus Earned</div>
+                        <div class="stat-value">₹5,000</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div style="margin-bottom: 20px;">
+                        <h3 style="margin-bottom: 10px;">Payment History</h3>
+                        <p style="color: #A0ABB8; font-size: 14px;">Last payment: Dec 30, 2025 • ₹16,200</p>
+                    </div>
+                    <div style="background: #1A1F2E; padding: 15px; border-radius: 8px; text-align: center;">
+                        <p style="color: #A0ABB8; font-size: 14px; margin-bottom: 10px;">Next payment scheduled</p>
+                        <p style="font-size: 18px; font-weight: 600;">January 31, 2026</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Section -->
+            <div id="profile-section" class="section" style="display: none;">
+                <div class="card">
+                    <h2 style="margin-bottom: 20px;">Staff Profile</h2>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Name</label>
+                                <p style="font-size: 16px;">Ravi Kumar</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Position</label>
+                                <p style="font-size: 16px;">Senior Plumber</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Phone</label>
+                                <p style="font-size: 16px;">+91 98765 11111</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Email</label>
+                                <p style="font-size: 16px;">ravi@balajiplumbing.com</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Joined Date</label>
+                                <p style="font-size: 16px;">Jan 15, 2022</p>
+                            </div>
+                            <div style="margin-bottom: 15px;">
+                                <label style="color: #A0ABB8; font-size: 12px; text-transform: uppercase; display: block; margin-bottom: 6px;">Rating</label>
+                                <p style="font-size: 16px;">4.9 ⭐</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionName) {
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            const sectionId = sectionName + '-section';
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = 'block';
+            }
+
+            document.querySelectorAll('.sidebar-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.target.closest('.sidebar-item').classList.add('active');
+        }
+
+        function acceptJob() {
+            alert('Job accepted! You can now start the work. Mark as completed when done.');
+        }
+
+        function updateTime() {
+            const now = new Date();
+            document.getElementById('currentTime').textContent = now.toLocaleTimeString();
+        }
+
+        updateTime();
+        setInterval(updateTime, 60000);
+    </script>
+</body>
+</html>
